@@ -1,5 +1,7 @@
 python-telegram-bot
-requests
 pandas
 scikit-learn
+requests
 python-dotenv
+flask
+gunicorn

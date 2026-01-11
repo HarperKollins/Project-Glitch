@@ -18,6 +18,7 @@ from telegram.constants import ParseMode
 import predict_glitch
 from data_manager import get_headers, API_FOOTBALL_BASE, fetch_fixtures_with_cache
 import requests
+from keep_alive import keep_alive
 
 # Load environment variables
 load_dotenv()
@@ -397,4 +398,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    print("🚀 STARTING BOT... PLEASE STOP ANY LOCAL INSTANCES TO AVOID CONFLICTS.")
+    keep_alive()
     main()
