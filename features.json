@@ -1,0 +1,42 @@
+{
+  "features": [
+    "HomeTeam_Form",
+    "AwayTeam_Form",
+    "Home_Avg_Goals",
+    "Away_Avg_Goals",
+    "Home_Avg_Conceded",
+    "Away_Avg_Conceded",
+    "Home_BTTS_Rate",
+    "Away_BTTS_Rate"
+  ],
+  "models": {
+    "win": {
+      "file": "model_win.pkl",
+      "type": "classifier",
+      "classes": [
+        "Home",
+        "Draw",
+        "Away"
+      ],
+      "accuracy": 0.4857482185273159
+    },
+    "goals": {
+      "file": "model_goals.pkl",
+      "type": "binary",
+      "classes": [
+        "Under 2.5",
+        "Over 2.5"
+      ],
+      "accuracy": 0.5130641330166271
+    },
+    "btts": {
+      "file": "model_btts.pkl",
+      "type": "binary",
+      "classes": [
+        "No BTTS",
+        "BTTS"
+      ],
+      "accuracy": 0.517814726840855
+    }
+  }
+}

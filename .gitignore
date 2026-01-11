@@ -1,0 +1,48 @@
+# Sensitive Info
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE Settings
+.vscode/
+.idea/
+
+# Project Specific
+fixtures_cache.json
+*.log
+
+# Large Data (Optional, but good practice if files are huge)
+# Keeping CSVs for now as they seem to be the source of truth
+# data/*.csv 
+
+# Models (Optional: Uncomment to exclude models if they are too large)
+# *.pkl
