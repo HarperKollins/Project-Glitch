@@ -155,19 +155,21 @@ def predict_match_ml(home_team: str, away_team: str) -> Dict[str, Any]:
     home_stats = get_team_stats(df, home_team, is_home=True)
     away_stats = get_team_stats(df, away_team, is_home=False)
     
-    # Prepare features
+    # Prepare features for the model
+    # Matches the columns used during training (train_glitch.py)
     feature_cols = config['features']
     features = {
-        'HomeTeam_Form': home_stats['form'],
-        'AwayTeam_Form': away_stats['form'],
-        'Home_Avg_Goals': home_stats['avg_goals'],
-        'Away_Avg_Goals': away_stats['avg_goals'],
-        'Home_Avg_Conceded': home_stats['avg_conceded'],
-        'Away_Avg_Conceded': away_stats['avg_conceded'],
-        'Home_BTTS_Rate': home_stats['btts_rate'],
-        'Away_BTTS_Rate': away_stats['btts_rate']
+        'HomeTeam_Form': home_stats['form'],          # Points from last 5 games (max 15)
+        'AwayTeam_Form': away_stats['form'],          # Points from last 5 games (max 15)
+        'Home_Avg_Goals': home_stats['avg_goals'],    # Attack strength
+        'Away_Avg_Goals': away_stats['avg_goals'],    # Attack strength
+        'Home_Avg_Conceded': home_stats['avg_conceded'], # Defense weakness
+        'Away_Avg_Conceded': away_stats['avg_conceded'], # Defense weakness
+        'Home_BTTS_Rate': home_stats['btts_rate'],    # % of recent games with BTTS
+        'Away_BTTS_Rate': away_stats['btts_rate']     # % of recent games with BTTS
     }
     
+    # Convert to DataFrame for sklearn compatibility
     X = pd.DataFrame([features])[feature_cols]
     
     # Get predictions from all models
